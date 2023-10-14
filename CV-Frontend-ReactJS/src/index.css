@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.ofertas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+   }
+   
+   .oferta-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   }
+   
+   .oferta-card-img {
+    margin-right: 10px;
+   }

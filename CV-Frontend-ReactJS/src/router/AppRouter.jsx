@@ -4,6 +4,7 @@ import { HomePage } from "../pages/HomePage";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { login, logout } from "../store/auth/authSlice";
+import OfertasLaborales from "../pages/OfertaLaboral";
 
 export const AppRouter = () => {  
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ export const AppRouter = () => {
     return (
       <Routes>
         <Route path="/auth/register" element={ <RegisterPage />} />
-        <Route path="/*" element={ <LoginPage />} />        
+        <Route path="/*" element={ <LoginPage />} />       
+        <Route path="ofertalaboral" element={ <OfertasLaborales />} />         
       </Routes>
     );
   };
