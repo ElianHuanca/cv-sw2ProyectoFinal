@@ -16,13 +16,13 @@ export const loginNodeJs = async (nombre, password) => {
   return response;
 };
 
-export const registerNodeJs = async ( nombre, password) => {
+export const registerNodeJs = async (nombre, password) => {
   const resp = await fetch(`${baseUrl}/usuarios`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({      
+    body: JSON.stringify({
       nombre,
       password
     }),
@@ -31,3 +31,22 @@ export const registerNodeJs = async ( nombre, password) => {
   console.log(response);
   return response;
 };
+
+export const registerEmpresaNodeJs = async (nombre, password, direccion, tipo) => {
+  const resp = await fetch(`${baseUrl}/empresas`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      nombre,
+      password,
+      direccion,
+      tipo
+    }),
+  });
+  const response = await resp.json();
+  console.log(response);
+  return response;
+};
+

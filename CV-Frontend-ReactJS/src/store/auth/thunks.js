@@ -1,4 +1,4 @@
-import { loginNodeJs,registerNodeJs } from "../../helpers/authHelper";
+import { loginNodeJs,registerEmpresaNodeJs,registerNodeJs } from "../../helpers/authHelper";
 import { checkingCredentials, logout, login } from "./authSlice";
 
 export const checkingAuthentication = (nombre, password) => {
@@ -14,6 +14,26 @@ export const startCreatingUserNodeJs = ({
     return async (dispatch) => {
         dispatch(checkingCredentials());
         const user = await registerNodeJs(nombre, password);
+        if (!user.nombre) {
+            return dispatch(logout());
+        }
+        localStorage.setItem(
+            "user",
+            JSON.stringify({ id: user.id, nombre: user.nombre })
+        );
+        return dispatch(login({ id: user.id, nombre: user.nombre }));
+    };
+};
+
+export const startCreatingEmpresaNodeJs = ({
+    nombre,
+    password,
+    direccion,
+    tipo
+}) => {
+    return async (dispatch) => {
+        dispatch(checkingCredentials());
+        const user = await registerEmpresaNodeJs(nombre, password,direccion,tipo);
         if (!user.nombre) {
             return dispatch(logout());
         }

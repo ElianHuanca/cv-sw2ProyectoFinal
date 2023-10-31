@@ -4,13 +4,14 @@ import { useForm } from '../hooks/useForm';
 import { useDispatch } from 'react-redux';
 import { startCreatingUserNodeJs } from '../store/auth/thunks';
 
+
 export const RegisterPage = () => {
   const dispatch = useDispatch();
   const isAuthenticating = false;
   const { nombre, password, onInputChange } = useForm({
     nombre: "",
-    password: ""
-  });
+    password: "",    
+  });  
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -29,12 +30,14 @@ export const RegisterPage = () => {
             <label>Username</label>
             <input className='border relative bg-gray-100 p-2' type="text" value={nombre} onChange={onInputChange} name="nombre" required />
           </div>
-          <div className='flex flex-col '>
+
+          <div className='flex flex-col mb-4'>
             <label>Password</label>
             <input className='border relative bg-gray-100 p-2' type="password" value={password} onChange={onInputChange} name="password" required />
           </div>
-          <button disabled={isAuthenticating} className='w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white' type="submit">Sign In</button>
 
+
+          <button disabled={isAuthenticating} className='w-full py-3 mt-8 bg-[#00df9a] hover:bg-[#00dfaf] relative text-white' type="submit">Sign In</button>
           <p className='text-center mt-8'>Ya Tienes Cuenta?</p>
           <Link to="/auth/login" className="text-center block relative">
             <span className="hover:text-slate-600">Ingresa</span>

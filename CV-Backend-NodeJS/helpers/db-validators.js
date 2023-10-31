@@ -1,6 +1,7 @@
 
 const Usuario = require('../models/usuario');
-
+const Empresa= require('../models/empresa');
+const Trabajo = require('../models/trabajo');
 
 const nombreExiste = async( nombre = '' ) => {
 
@@ -20,10 +21,26 @@ const existeUsuarioPorId = async( id ) => {
     }
 }
 
+const existeEmpresaPorId = async( id ) => {
+    
+    const existeEmpresa = await Empresa.findById(id);
+    if ( !existeEmpresa ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
 
+const existeTrabajoPorId = async( id ) => {
+    
+    const existeTrabajo = await Trabajo.findById(id);
+    if ( !existeTrabajo ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
 
 module.exports = {
     existeUsuarioPorId,
+    existeEmpresaPorId,
+    existeTrabajoPorId,
     nombreExiste
 }
 
