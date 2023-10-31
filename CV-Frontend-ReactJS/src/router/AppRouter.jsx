@@ -7,6 +7,7 @@ import { login, logout } from "../store/auth/authSlice";
 import { PrincipalPage } from "../pages/PrincipalPage/PrincipalPage";
 import RegisterEmpresa from "../auth/RegisterEmpresa";
 import { TrabajoPage } from "../pages/TrabajoPage/TrabajoPage";
+import OfertasLaborales from "../pages/OfertaLaboral";
 
 export const AppRouter = () => {  
   const dispatch = useDispatch();
@@ -37,9 +38,9 @@ export const AppRouter = () => {
         <Route path="/auth/login" element={ <LoginPage />} />
         <Route path="/auth/register" element={ <RegisterPage />} />
         <Route path="/auth/registerEmpresa" element={ <RegisterEmpresa />} />
-        {/* <Route path="/*" element={ <LoginPage />} />         */}
-        <Route path="/*" element={ <PrincipalPage />} />        
-
+        {/* <Route path="/*" element={ <LoginPage />} />  */}
+        <Route path="/*" element={ <PrincipalPage />} />                
+        <Route path="ofertalaboral" element={ <OfertasLaborales />} />         
       </Routes>
     );
   };
